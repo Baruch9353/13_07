@@ -5,8 +5,8 @@ config();
 
 const app = express();
 
-app.use('/products', router); 
-app.use('/products', router); 
+app.use('/', router); 
+
 
 
 
