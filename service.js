@@ -1,4 +1,5 @@
 import pool from './db.js';
+
 export const getAllProsucts = async (req, res) => {
     const [rows] = await pool.query(
       "SELECT * FROM products"
@@ -14,7 +15,7 @@ export async function getCustomerNameByCountry(req, res) {
       [country]
     );
     res.json(rows);
-}
+};
 
 export async function getEmployeesByReportsTo (req, res) {
     const reportsTo = req.params.reportsTo; 
@@ -27,7 +28,7 @@ export async function getEmployeesByReportsTo (req, res) {
 };
 
 
-export async function getSumQuantityInStockProductLine (req, res) {
+export async function getSumQuantityInStockByProductLine (req, res) {
     const productLine = req.params.productLine; 
     if (!productLine) return res.status(400).send("Missing product ine parameter");
     const [rows] = await pool.query(
